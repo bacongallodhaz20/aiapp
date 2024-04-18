@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="img/logo (1).png" class="logo">
+            <ul>
+                <li><a href="">Features</a></li>
+                <li><a href="">How it works</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">About Us</a></li>
+            </ul>
+            <div>
+                <!-- Add an ID to the download link for JavaScript targeting -->
+                <a href="fileapp/BYTE.apk" id="downloadLink" class="btn">Download App</a>
+            </div>
+        </nav>
+        <div class="content">
+            <h1 class="anim">AI Trouble Shooting</h1>
+            <p class="anim">Welcome to BYTE, your innovative solution for troubleshooting woes! BYTE is not just your average chatbot; it's your digital companion designed to assist you in resolving technical issues swiftly and efficiently.</p>
+            <a href="#" class="btn anim">Contact Us</a>
+        </div>
+        <img src="img/byte.png" alt="" class="feature-img anim">
+    </div>
+
+    <script>
+        // JavaScript to handle the download when the button is clicked
+        document.getElementById('downloadLink').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            var downloadUrl = this.getAttribute('href'); // Get the download URL from the href attribute
+            var fileName = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1); // Extract the file name
+            var anchor = document.createElement('a');
+            anchor.href = downloadUrl;
+            anchor.download = fileName; // Set the download attribute to specify the file name
+            anchor.style.display = 'none'; // Hide the anchor
+            document.body.appendChild(anchor); // Append the anchor to the document body
+            anchor.click(); // Trigger a click on the anchor to start the download
+            document.body.removeChild(anchor); // Clean up by removing the anchor
+        });
+    </script>
+</body>
+</html>
